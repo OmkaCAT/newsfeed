@@ -1,0 +1,7 @@
+virtualenv
+*.pyc
+*~
+__pycache__
+/staticgt
+.DS_Store
+.idea
