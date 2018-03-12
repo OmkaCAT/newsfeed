@@ -1,0 +1,65 @@
+{% extends "layout/layout_navbar.html" %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" style="margin-top: 30px">
+        <h1>Пользователь: {{ profile.username }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" style="margin-top: 30px">
+        {% for post in posts %}
+          <div class="jumbotron" style="position: relative;">
+            <a class="btn btn-outline-secondary"
+            style="position: absolute; top: 0; right: 0;"
+            href="{% url 'edit_post' pk=post.pk %}">
+              Редактировать
+            </a>
+            <p>
+              Дата публикации: {{ post.published_date }}
+            </p>
+            <h1>{{ post.title }}</h1>
+            <blockquote class="blockquote">
+              <p class="mb-0">{{ post.text|linebreaksbr }}</p>
+              <footer class="blockquote-footer">Автор поста:
+                <cite title="Source Title">
+                <a href="{% url 'page_profile' pk=post.author.pk %}"
+                    >
+                     {{ post.author }}
+                  </a>
+                </cite>
+              </footer>
+            </blockquote>
+          </div>
+        {% endfor %}
+        <div>
+          <ul class="pagination">
+            {% if posts.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ posts.previous_page_number }}">&laquo;</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="">&laquo;</a>
+              </li>
+            {% endif %}
+            {% for page in posts.paginator.page_range %}
+                <li class="page-item {% if page == posts.number %} active {% endif %}">
+                 <a class="page-link" href="/profile/{{user.pk}}/?page={{ page }}">{{ page }}</a>
+                </li>
+            {% endfor %}
+            <li class="page-item">
+              {% if posts.has_next %}
+                <a class="page-link" href="?page={{ posts.next_page_number }}">&raquo;</a>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link" href="">&raquo;</a>
+                </li>
+              {% endif %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

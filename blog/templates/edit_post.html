@@ -1,0 +1,33 @@
+{% extends "layout/layout_navbar.html" %}
+{% load staticfiles %}
+{% block content %}
+  <div class="container" style="margin-top: 30px;">
+    <h1>Редактирование поста</h1>
+    <form action="/edit_post/{{ post.pk }}/" method="post" id="edit_post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label class="col-form-label">Название поста</label>
+        <input type="text" class="form-control" name="title" value="{{ post.title }}">
+      </div>
+      <div class="form-group">
+        <label class="col-form-label">Текст поста</label>
+        <div id="editor">
+        </div>
+        <textarea name="text" hidden>{{ post.text }}</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg">Редактировать</button>
+    </form>
+  </div>
+  <script src="{% static 'js/quill.js' %}"></script>
+  <script>
+    var quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+    quill.setText(`{{ post.text }}`);
+    var form = document.querySelector('form#edit_post');
+    form.onsubmit = function() {
+      var text = document.querySelector('textarea[name="text"]');
+      text.value = quill.getText();
+    };
+  </script>
+{% endblock %}

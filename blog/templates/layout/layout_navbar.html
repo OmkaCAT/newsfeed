@@ -1,0 +1,49 @@
+{% extends "layout/layout.html" %}
+{% block navbar %}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a href="{% url 'index' %}" class="navbar-brand">OmkaCAT</a>
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarColor01"
+              aria-controls="navbarColor01"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item {% if page == 'index' %} active{% endif %}">
+            <a class="nav-link" href="{% url 'index' %}">Главная страница</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item {% if page == 'add_post' %} active{% endif %}">
+              <a class="nav-link" href="{% url 'add_post' %}">Добавить пост</a>
+            </li>
+          {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
+          <form action="/logout/" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-secondary">
+              Выйти
+            </button>
+          </form>
+          <a class="btn btn-secondary my-2 my-sm-0"
+            href="{% url 'page_profile' pk=user.pk %}"
+            >
+            {{ user.username }}
+          </a>
+        {% else %}
+          <a class="btn btn-outline-secondary" href="{% url 'page_auth' %}">
+            Войти
+          </a>
+          <a class="btn btn-secondary my-2 my-sm-0" href="{% url 'page_register' %}">
+            Регистрация
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+{% endblock %}
