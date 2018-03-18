@@ -9,27 +9,31 @@
     <div class="row">
       <div class="col-md-12" style="margin-top: 30px">
         {% for post in posts %}
-          <div class="jumbotron" style="position: relative;">
-            <a class="btn btn-outline-secondary"
-            style="position: absolute; top: 0; right: 0;"
-            href="{% url 'edit_post' pk=post.pk %}">
-              Редактировать
-            </a>
-            <p>
-              Дата публикации: {{ post.published_date }}
-            </p>
-            <h1>{{ post.title }}</h1>
-            <blockquote class="blockquote">
-              <p class="mb-0">{{ post.text|linebreaksbr }}</p>
-              <footer class="blockquote-footer">Автор поста:
-                <cite title="Source Title">
-                <a href="{% url 'page_profile' pk=post.author.pk %}"
-                    >
-                     {{ post.author }}
-                  </a>
-                </cite>
-              </footer>
-            </blockquote>
+          <div class="card border-primary mb-3" style="position: relative;">
+            {% if user.is_authenticated and user == post.author %}
+              <a class="btn"
+              style="position: absolute; top: 3px; right: 3px;"
+              href="{% url 'edit_post' pk=post.pk %}">
+                <i class="close">&#9997;</i>
+              </a>
+            {% endif %}
+            <div class="card-header">Дата публикации: {{ post.published_date }}</div>
+            <div class="card-body">
+              <h2 class="card-title text-primary" name="title">{{ post.title }}</h2>
+              <blockquote class="blockquote">
+                <p class="card-text mb-0" name="text">
+                  {{ post.text|linebreaksbr }}
+                </p>
+                <footer class="blockquote-footer">Автор поста:
+                  <cite title="Source Title">
+                  <a href="{% url 'page_profile' pk=post.author.pk %}"
+                      >
+                       {{ post.author }}
+                    </a>
+                  </cite>
+                </footer>
+              </blockquote>
+            </div>
           </div>
         {% endfor %}
         <div>
@@ -43,7 +47,7 @@
                 <a class="page-link" href="">&laquo;</a>
               </li>
             {% endif %}
-            {% for page in posts.paginator.page_range %}
+            {% for page in my_page_range %}
                 <li class="page-item {% if page == posts.number %} active {% endif %}">
                  <a class="page-link" href="/profile/{{user.pk}}/?page={{ page }}">{{ page }}</a>
                 </li>

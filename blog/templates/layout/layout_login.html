@@ -1,4 +1,5 @@
 {% extends "layout/layout.html" %}
+{% load staticfiles%}
 {% block login %}
   <div class="container center-block" style="max-width: 30rem; margin-top: 5rem;">
     <div class="card border-primary">
@@ -14,14 +15,28 @@
             </p>
           </div>
         {% endif %}
+        {% if captcha_error %}
+          <div class="alert alert-dismissible alert-warning error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+             <h4 class="alert-heading">Ошибка!</h4>
+            <p class="mb-0">
+              {{ captcha_error }}
+            </p>
+          </div>
+        {% endif %}
         <div class="card-body">
           <div class="form-group">
             <label>Логин</label>
             <input type="text" name="login" class="form-control" placeholder="Введите логин">
           </div>
           <div class="form-group">
-            <label>Пароль</label>
+            <lab/el>Пароль</label>
             <input type="password" class="form-control" placeholder="Введите пароль" name="password">
+          </div>
+          <div class="form-group">
+            <img src="/static/captchas/{{token}}.png">
+            <input type="text"  class="form-control" name="captcha_user">
+            <input type="hidden" name="captcha_token" value="{{token}}">
           </div>
           <button type="submit" name="submit" class="btn btn-block btn-primary">
             {% block button_name %}{% endblock %}

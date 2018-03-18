@@ -1,8 +1,11 @@
 {% extends "layout/layout.html" %}
+{% load staticfiles%}
 {% block navbar %}
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-      <a href="{% url 'index' %}" class="navbar-brand">OmkaCAT</a>
+      <a href="{% url 'index' %}" class="navbar-brand">
+        OmkaCAT
+      </a>
       <button class="navbar-toggler"
               type="button"
               data-toggle="collapse"
