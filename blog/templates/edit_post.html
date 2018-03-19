@@ -23,7 +23,12 @@
     var quill = new Quill('#editor', {
       theme: 'snow'
     });
-    quill.setText(`{{ post.text }}`);
+    // quill.setContents(`{{ post.text }}`);
+    // var content = JSON.parse(`{{ post.text }}`);
+    localStorage.setItem('text', JSON.stringify(`{{ post.text }}`));
+    var restoredSession = JSON.parse(localStorage.getItem('text'));
+    console.log(restoredSession);
+    quill.setContents(restoredSession);
     var form = document.querySelector('form#edit_post');
     form.onsubmit = function() {
       var text = document.querySelector('textarea[name="text"]');

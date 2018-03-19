@@ -1,5 +1,6 @@
 # -*- coding: utf8 -*-
 import os
+import json
 from .models import Post, Captcha
 from hashlib import sha256
 from django.contrib import auth
@@ -169,9 +170,10 @@ def add_post(request):
     if request.method == "POST":
         title = request.POST.get('title', '')
         text = request.POST.get('text', '')
+        content_object = json.loads(text)
         Post.objects.create(
             title=title,
-            text=text,
+            text=content_object,
             author=request.user
         )
         return redirect('/index')
@@ -185,7 +187,6 @@ def edit_post(request, pk):
     if request.method == "POST":
         title = request.POST.get('title', '')
         text = request.POST.get('text', '')
-        print(text)
         update_post = Post.objects.get(pk=pk)
         Post.objects.select_related().filter(pk=pk).update(
             title=title,
@@ -195,8 +196,6 @@ def edit_post(request, pk):
         return redirect('/index')
     else:
         post = Post.objects.get(pk=pk)
-        page = request
-        print (page)
         return render(request, 'edit_post.html', {'post': post})
 
 
@@ -234,4 +233,3 @@ def login_error(error, token):
 # текст
 # heroku
 # хеширование
-# админка

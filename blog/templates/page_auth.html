@@ -1,4 +1,9 @@
 {% extends "layout/layout_login.html" %}
 {% block title %}Вход{% endblock %}
 {% block button_name %}Войти{% endblock %}
+{% block button_register %}
+  <a href="{% url 'page_register' %}">
+    Регистрация
+  </a>
+{% endblock %}
 {% load staticfiles %}
