@@ -1,3 +1,4 @@
+# -*- coding: cp1251 -*-
 import os
 from .models import Post, Captcha
 from hashlib import sha256
@@ -230,3 +231,7 @@ def login_error(error, token):
 # def encrypt(string):
 #     signature = sha256(string.encode()).hexdigest()
 #     return signature
+# текст
+# heroku
+# хеширование
+# админка

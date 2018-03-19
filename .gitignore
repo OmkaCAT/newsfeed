@@ -1,5 +1,4 @@
 virtualenv
-/staticgt
 .DS_Store
 .idea
 newsfeed/settings/local.py
