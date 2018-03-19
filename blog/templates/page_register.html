@@ -2,3 +2,8 @@
 {% load staticfiles %}
 {% block title %}Регистрация{% endblock %}
 {% block button_name %}Зарегистрироваться{% endblock %}
+{% block button_register %}
+  <a href="{% url 'page_register' %}">
+    Регистрация
+  </a>
+{% endblock %}

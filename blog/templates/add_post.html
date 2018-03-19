@@ -26,7 +26,7 @@
     var form = document.querySelector('form#add_post');
     form.onsubmit = function() {
       var text = document.querySelector('textarea[name="text"]');
-      text.value = quill.getText();
+      text.value = quill.getContents();
     };
   </script>
 {% endblock %}
