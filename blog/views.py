@@ -187,7 +187,7 @@ def edit_post(request, pk):
         text = request.POST.get('text', '')
         print(text)
         update_post = Post.objects.get(pk=pk)
-        Post.objects.select_related().filter(title=update_post).update(
+        Post.objects.select_related().filter(pk=pk).update(
             title=title,
             text=text,
             author=request.user
