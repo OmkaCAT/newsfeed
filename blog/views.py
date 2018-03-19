@@ -1,4 +1,4 @@
-# -*- coding: cp1251 -*-
+# -*- coding: utf8 -*-
 import os
 from .models import Post, Captcha
 from hashlib import sha256
