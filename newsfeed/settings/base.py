@@ -26,8 +26,8 @@ SECRET_KEY = 'zakbc5%^e7n#)k5jw#=m#-=jv+3(#6emxxmr81ywy0-^)=bv1v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['floating-bayou-94609.herokuapp.com']
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['floating-bayou-94609.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -77,26 +77,26 @@ WSGI_APPLICATION = 'newsfeed.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'newsfeed',
-#         'USER': 'omka',
-#         'PASSWORD': '1234',
-#         'HOST': '',
-#         'PORT': '',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd17n07ep878r0h',
-        'USER': 'ozkcdrepvuynjm',
-        'PASSWORD': '8514a7f591939e27e68ad2b7143f63859704fa319ee3f68f29179265059bb7bf',
-        'HOST': 'ec2-54-163-246-193.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': 'newsfeed',
+        'USER': 'omka',
+        'PASSWORD': '1234',
+        'HOST': '',
+        'PORT': '',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd17n07ep878r0h',
+#         'USER': 'ozkcdrepvuynjm',
+#         'PASSWORD': '8514a7f591939e27e68ad2b7143f63859704fa319ee3f68f29179265059bb7bf',
+#         'HOST': 'ec2-54-163-246-193.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation

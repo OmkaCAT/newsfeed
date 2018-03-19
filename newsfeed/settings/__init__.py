@@ -1,8 +1,8 @@
 from .base import *
 
-from .production import *
 
-try:
+SERVER = os.getenv('SERVER')
+if SERVER == 'production':
+    from .production import *
+else:
     from .local import *
-except:
-    pass 
