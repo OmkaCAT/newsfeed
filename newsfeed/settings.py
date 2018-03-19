@@ -76,14 +76,24 @@ WSGI_APPLICATION = 'newsfeed.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'newsfeed',
+#         'USER': 'omka',
+#         'PASSWORD': '1234',
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'newsfeed',
-        'USER': 'omka',
-        'PASSWORD': '1234',
-        'HOST': '',
-        'PORT': '',
+        'USER': 'ozkcdrepvuynjm',
+        'PASSWORD': '8514a7f591939e27e68ad2b7143f63859704fa319ee3f68f29179265059bb7bf',
+        'HOST': 'ec2-54-163-246-193.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
