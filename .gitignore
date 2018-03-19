@@ -1,7 +1,6 @@
 virtualenv
 .DS_Store
 .idea
-newsfeed/settings/local.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
