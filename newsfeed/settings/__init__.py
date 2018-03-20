@@ -1,7 +1,7 @@
 from .base import *
 
 
-SERVER = os.getenv('SERVER')
+SERVER = os.getenv('DEPLOYMENT_ENVIRONMENT')
 if SERVER == 'production':
     from .production import *
 else:
