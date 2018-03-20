@@ -6,6 +6,15 @@
         <h1>Пользователь: {{ profile.username }}</h1>
       </div>
     </div>
+    <div id="editor" hidden>
+    </div>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script type="text/javascript">
+      var quill = new Quill('#editor', {
+        toolbar: '',
+        theme: 'bubble'
+      });
+    </script>
     <div class="row">
       <div class="col-md-12" style="margin-top: 30px">
         {% for post in posts %}
@@ -21,9 +30,17 @@
             <div class="card-body">
               <h2 class="card-title text-primary" name="title">{{ post.title }}</h2>
               <blockquote class="blockquote">
-                <p class="card-text mb-0" name="text">
-                  {{ post.text|linebreaksbr }}
-                </p>
+                <div id="{{ post.id }}"></div>
+                <script type="text/javascript">
+                  var tempCont = document.getElementById('editor').getElementsByClassName('ql-editor');
+                  var str = '{{ post.text | safe | escapejs }}';
+                  var content = JSON.parse(str);
+                  quill.setContents(content);
+                  var post_text_id = '{{ post.id }}';
+                  console.log(post_text_id);
+                  console.log(tempCont[0]);
+                  document.getElementById(post_text_id).innerHTML = tempCont[0].outerHTML;
+                </script>
                 <footer class="blockquote-footer">Автор поста:
                   <cite title="Source Title">
                   <a href="{% url 'page_profile' pk=post.author.pk %}"
