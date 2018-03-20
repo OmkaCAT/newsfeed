@@ -33,8 +33,6 @@
                   var content = JSON.parse(str);
                   quill.setContents(content);
                   var post_text_id = '{{ post.id }}';
-                  console.log(post_text_id);
-                  console.log(tempCont[0]);
                   document.getElementById(post_text_id).innerHTML = tempCont[0].outerHTML;
                 </script>
                 <footer class="blockquote-footer">Автор поста:

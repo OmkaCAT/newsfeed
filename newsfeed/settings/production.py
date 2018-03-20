@@ -14,7 +14,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +26,7 @@ SECRET_KEY = 'zakbc5%^e7n#)k5jw#=m#-=jv+3(#6emxxmr81ywy0-^)=bv1v'
 DEBUG = True
 
 ALLOWED_HOSTS = ['desolate-falls-42433.herokuapp.com']
-# ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -77,16 +76,7 @@ WSGI_APPLICATION = 'newsfeed.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'newsfeed',
-#         'USER': 'omka',
-#         'PASSWORD': '1234',
-#         'HOST': '',
-#         'PORT': '',
-#     }
-# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

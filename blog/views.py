@@ -224,9 +224,3 @@ def login_error(error, token):
     login_error = error
     context = {'login_error': login_error, 'token': token}
     return context
-
-# def encrypt(string):
-#     signature = sha256(string.encode()).hexdigest()
-#     return signature
-# текст
-# хеширование

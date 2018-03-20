@@ -14,7 +14,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +25,7 @@ SECRET_KEY = 'zakbc5%^e7n#)k5jw#=m#-=jv+3(#6emxxmr81ywy0-^)=bv1v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['desolate-falls-42433.herokuapp.com']
+
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -87,16 +86,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd2t2e2qkskgb38',
-#         'USER': 'hfplegcecxquhz',
-#         'PASSWORD': '18a874b2b0b7f0b86334fa15e291f0b76eb8606cfeb8b0feff7ad333e13b028e',
-#         'HOST': 'ec2-54-83-58-222.compute-1.amazonaws.com',
-#         'PORT': '5432',
-#     }
-# }
 
 
 

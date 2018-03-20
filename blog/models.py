@@ -12,6 +12,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Captcha(models.Model):
     captcha = models.CharField(max_length=200)
     token = models.CharField(max_length=200)
