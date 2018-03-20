@@ -170,10 +170,9 @@ def add_post(request):
     if request.method == "POST":
         title = request.POST.get('title', '')
         text = request.POST.get('text', '')
-        content_object = json.loads(text)
         Post.objects.create(
             title=title,
-            text=content_object,
+            text=text,
             author=request.user
         )
         return redirect('/index')
@@ -231,5 +230,4 @@ def login_error(error, token):
 #     signature = sha256(string.encode()).hexdigest()
 #     return signature
 # текст
-# heroku
 # хеширование

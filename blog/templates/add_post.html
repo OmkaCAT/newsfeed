@@ -25,8 +25,6 @@
     });
     var form = document.querySelector('form#add_post');
     form.onsubmit = function() {
-      // var text = document.querySelector('textarea[name="text"]');
-      // text.value = quill.getText();
       var content_text = document.querySelector('textarea[name="text"]');
       var content = quill.getContents();
       content_text.value = JSON.stringify(content);

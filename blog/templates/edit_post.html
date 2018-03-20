@@ -18,21 +18,19 @@
       <button type="submit" class="btn btn-primary btn-lg">Редактировать</button>
     </form>
   </div>
-  <script src="{% static 'js/quill.js' %}"></script>
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script>
     var quill = new Quill('#editor', {
       theme: 'snow'
     });
-    // quill.setContents(`{{ post.text }}`);
-    // var content = JSON.parse(`{{ post.text }}`);
-    localStorage.setItem('text', JSON.stringify(`{{ post.text }}`));
-    var restoredSession = JSON.parse(localStorage.getItem('text'));
-    console.log(restoredSession);
-    quill.setContents(restoredSession);
+    var str = '{{ post.text | safe | escapejs }}';
+    var content = JSON.parse(str);
+    quill.setContents(content);
     var form = document.querySelector('form#edit_post');
     form.onsubmit = function() {
-      var text = document.querySelector('textarea[name="text"]');
-      text.value = quill.getText();
+      var content_text = document.querySelector('textarea[name="text"]');
+      var content = quill.getContents();
+      content_text.value = JSON.stringify(content);
     };
   </script>
 {% endblock %}
