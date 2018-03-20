@@ -2,7 +2,6 @@ captcha==0.2.4
 certifi==2018.1.18
 Django==1.11.10
 gunicorn==19.7.1
-jsonfield==2.0.2
 Pillow==5.0.0
 pipenv==11.8.0
 pkg-resources==0.0.0
