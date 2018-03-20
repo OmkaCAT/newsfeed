@@ -1,6 +1,5 @@
 # -*- coding: utf8 -*-
 import os
-import json
 from .models import Post, Captcha
 from hashlib import sha256
 from django.contrib import auth
