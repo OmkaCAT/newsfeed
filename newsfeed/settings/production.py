@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 'zakbc5%^e7n#)k5jw#=m#-=jv+3(#6emxxmr81ywy0-^)=bv1v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['desolate-falls-42433.herokuapp.com']
 
